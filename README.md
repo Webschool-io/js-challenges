@@ -1,32 +1,22 @@
-# JavaScript Challenges
+# JavaScript - Desafios
 
-> Repo to store telegram's [@js_challenges](https://t.me/js_challenges)
+> Repositório para centralizar os desafios de JS dos grupos de [Node.js](https://t.me/NodejsBR) e [JavaScript](https://t.me/javascriptbrasil)
 
-## Play
+Dia ou outro alguém joga algum desafio la ou pede uma ajuda e isso gera algumas soluções que decedi guardar por 
+aqui para ajudar nossos alunos.
 
-To play is simple.
+## Como propor um desafio
 
-1. Browse problems over here.
-2. Choose one problem to solve.
-3. Solve and make a [Gist](https://gist.github.com/).
-4. Comment your Gist URL on the challenge Gist.
-5. Go to step 1.
+1. Fork esse repositório.
+2. Adicione seu desafio na lista abaixo.
+3. Faça um pull request.
 
-## How to propose a challenge:
-1. Make a Fork of this repo.
-2. Add your Challenge on the challenge list.
-3. Make a pull request.
 
-## Contents
+## Desafios
 
-- [Challenges](#challenges)
-
-## Challenges
-
-- [Objects List Values Sum](https://gist.github.com/anabastos/fbdfef7fcc64105e76e5e26218ebf7e6).
-- [Show Me the Evens - Show me the Odds](https://gist.github.com/yesroh/720cda408bbc899fc6c69bfddfbe6505).
-- [Prime Numbers](https://gist.github.com/Woodsphreaker/e81e068caee110e821c4c9b375a76ddd).
-- [Ascend](https://gist.github.com/lubien/17af35e99f944b2df9290c7e4d2485e4).
-- [Count Negative Numbers In a String](https://gist.github.com/yesroh/560fe5e74638292199c7c3cd05716be8).
+- [Somatório de Valores em Objetos](https://gist.github.com/anabastos/fbdfef7fcc64105e76e5e26218ebf7e6).
+- [Mostre-me os pares - Mostre-me os ímpares](https://gist.github.com/yesroh/720cda408bbc899fc6c69bfddfbe6505).
+- [Números Primos](https://gist.github.com/Woodsphreaker/e81e068caee110e821c4c9b375a76ddd).
+- [Conte os Números Negativos em uma Matriz](https://gist.github.com/yesroh/560fe5e74638292199c7c3cd05716be8).
 
 
