@@ -1,12 +1,12 @@
 const assert = require( 'assert' )
 
-
 const operators = [
   x => y => y * x,
   x => y => y / x,
   x => y => y - x,
   x => y => y + x
 ]
+
 
 const matrixBase = [
   [ 2, 4, 6, 8 ],
@@ -27,9 +27,9 @@ const specSumAll = {
   calculated: 0
 }
 
-specSumAll.calculated = sumAll( matrixBase )
+specSumAll.calculated = sumAll( matrixBase, operators )
 // console.log(`\n\t sumAll: ${sumAll}!`)
-console.log(`\n\t sumAll( matrixBase ): ${sumAll( matrixBase )}!`)
+console.log(`\n\t specSumAll.calculated: ${specSumAll.calculated}!`)
 
 // const specMultiply = {
 //   _title: `Test multiply a list by 2`,

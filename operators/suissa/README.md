@@ -368,32 +368,36 @@ console.log(`result: ${result}`)
 
 ## Modularizando
 
+Nesse momento iremos entender o porquê criamos tantas funções puras e atômicas, primeiro passo é colocarmos nosso código como um módulo usando, ainda, o bom e velho `module.exports`.
+
+Vamos pensar que os únicos valores que precisamos passar é o *array* inteiro e quais operações queremos executar, logo podemos faremos assim:
+
 ```js
 
-const operators = [
-  x => y => y * x,
-  x => y => y / x,
-  x => y => y - x,
-  x => y => y + x
-]
+module.exports = ( matrixBase, operators ) => { }
 
-const concat = ( acc, cur ) => acc.concat( cur )
-const flatten = ( arr ) => arr.reduce( concat, [] )
+```
 
-const makeOperation = ( operators, operatorsValues, op ) => ( num ) => 
-  operators[op]( operatorsValues[op] )(num)
+Com isso precisamos criar a lógica mínima dentro do `module.exports`:
 
-const calculate = ( operators, operatorsValues ) => ( list, op ) => 
-  list.map( makeOperation( operators, operatorsValues, op ) )
 
-const calculateMatrix = ( matrix, calculator, operators, operatorsValues ) => 
-  matrix.map( calculator( operators, operatorsValues ) )
+```js
 
-const sumAll = ( out, matrix ) => 
-  matrix.concat( out )
-        .reduce( ( a, b ) => a + b, 0 )
+module.exports = ( matrixBase, operators ) => { 
 
-module.exports = ( matrixBase ) => {
+  const [ operatorsValues, ...matrix] = matrixBase
+
+  return sumAll //...
+}
+
+```
+
+Sabendo disso iremos deixar nosso `module.exports` assim:
+
+
+```js
+
+module.exports = ( matrixBase, operators ) => {
 
   const [ operatorsValues, ...matrix] = matrixBase
 
@@ -406,6 +410,48 @@ module.exports = ( matrixBase ) => {
                           ) 
                 )
 }
+
+```
+
+Sim fiz pequenas mudanças para que tudo acontecesse perfeitamente.
+
+<br>
+**Finalizando nosso módulo, por hora, dessa forma:**
+<br>
+
+
+```js
+
+const concat = ( acc, cur ) => acc.concat( cur )
+const flatten = ( arr ) => arr.reduce( concat, [] )
+
+const makeOperation = ( operators, operatorsValues, op ) => ( num ) => 
+  operators[op]( operatorsValues[op] )(num)
+
+const calculate = ( operators, operatorsValues ) => ( list, op ) =>
+  list.map( makeOperation( operators, operatorsValues, op ) )
+
+const calculateMatrix = ( matrix, calculator, operators, operatorsValues ) => 
+  matrix.map( calculator( operators, operatorsValues ) )
+
+const sumAll = ( out, matrix ) => 
+  matrix.concat( out )
+        .reduce( ( a, b ) => a + b, 0 )
+
+module.exports = ( matrixBase, operators ) => {
+
+  const [ operatorsValues, ...matrix] = matrixBase
+
+  return sumAll( operatorsValues, 
+                  flatten( calculateMatrix( matrix, 
+                                            calculate, 
+                                            operators,
+                                            operatorsValues 
+                                          ) 
+                          ) 
+                )
+}
+
 
 
 ```
