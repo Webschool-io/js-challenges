@@ -13,7 +13,6 @@ const matrixBase = [
   [42, 44, 46, 48]
 ]
 
-const [ operatorsValues, ...matrix] = matrixBase
 
 const concat = ( acc, cur ) => acc.concat( cur )
 const flatten = ( arr ) => arr.reduce( concat, [] )
@@ -30,6 +29,8 @@ const calculateMatrix = ( matrix, calculator, operators ) =>
 const sumAll = ( out, matrix ) => 
   matrix.concat( out )
         .reduce( ( a, b ) => a + b, 0 )
+
+const [ operatorsValues, ...matrix] = matrixBase
 
 const result = sumAll(  operatorsValues, 
                         flatten( calculateMatrix( matrix, calculate, operators ) ) )
