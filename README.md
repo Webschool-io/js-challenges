@@ -14,6 +14,7 @@ aqui para ajudar nossos alunos.
 
 ## Desafios
 
+- [Dobrar valores pares da matriz](https://gist.github.com/anabastos/4014c329a0852b7aa9062606e210a9ab).
 - [Somatório de Valores em Objetos](https://gist.github.com/anabastos/fbdfef7fcc64105e76e5e26218ebf7e6).
 - [Mostre-me os pares - Mostre-me os ímpares](https://gist.github.com/yesroh/720cda408bbc899fc6c69bfddfbe6505).
 - [Números Primos](https://gist.github.com/Woodsphreaker/e81e068caee110e821c4c9b375a76ddd).
