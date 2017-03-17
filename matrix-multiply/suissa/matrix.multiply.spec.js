@@ -16,6 +16,14 @@ const matrizResult = [
   [ 139, 154 ]
 ]
 
+const conteColunas = ( matriz ) => matriz[ 0 ].length
+const conteLinhas = ( matriz ) => 
+  matriz.filter( list => Array.isArray( list ) ).length
+
+const testeTamanhoMatrizes = ( m1, m2 ) => 
+  conteColunas( m1 ) === conteLinhas( m2 )
+
+
 const multiplyMatriz = ( linha, coluna ) => {
   const result = linha.reduce( ( acc, cur, pos ) => {
     acc.push( cur * coluna[pos] )

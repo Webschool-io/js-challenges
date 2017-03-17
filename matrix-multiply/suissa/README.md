@@ -61,8 +61,56 @@ const matrizResult = [
 
 Guarde bem, isso: **O resultado dessa multiplicação será uma matriz com o número de linhas da primeira e o número de colunas da segunda.** Usaremos logo logo.
 
+### Verificar o tamanho das matrizes
+
+Para isso criaremos 3 funções:
+
+- conteColunas
+- conteLinhas
+- testeTamanhoMatrizes
+
+Dessa forma:
+
+```js
+
+const conteColunas = ( matriz ) => matriz[ 0 ].length
+
+const conteLinhas = ( matriz ) => 
+  matriz.filter( linha => Array.isArray( linha ) ).length
+
+const testeTamanhoMatrizes = ( m1, m2 ) => 
+  conteColunas( m1 ) === conteLinhas( m2 )
+
+```
+
+**A malandragem se encontra nessa parte: `const conteLinhas = ( matriz ) => 
+  matriz.filter( linha => Array.isArray( linha ) ).length`.**
+
+Pois como precisamos passar em todas suas linhas para conta-las utilizei o `filter` na `matriz` testando se cada `linha` é um Array, caso seja a linha é apenas retornada pelo `filter` e quando finaliza toda a iteraç˜ao eu apenas conto quantas linhas foram retornadas com o `length` e pronto!
 
 ### Pegar os valores e calcular
+
+Primeiramente precisamos pegar os valores da linha da primeira e da coluna da segunda matriz.
+
+```js
+
+const matriz1 = [
+  [ 1, 2, 3 ],
+  [ 4, 5, 6 ]
+]
+
+const matriz2 = [
+  [ 7,  8  ],
+  [ 9,  10 ],
+  [ 11, 12 ]
+]
+
+const getLinha = ( pos, matriz ) => matriz[ pos ]
+const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
+
+const primeiraLinha = getLinha( 0, matriz1 )
+
+```
 
 Sabemos que para pegar a linha 
 
