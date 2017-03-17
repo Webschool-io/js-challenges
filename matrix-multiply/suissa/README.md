@@ -20,6 +20,8 @@ Vamos inicialmente criar o teste para calcularmos o primeiro valor:
 
 ```js
 
+const assert = require( 'assert' )
+
 const matriz1 = [
   [ 1, 2, 3 ],
   [ 4, 5, 6 ]
@@ -48,10 +50,25 @@ const getLinha = ( pos, matriz ) => matriz[ pos ]
 const getColuna = ( pos, matriz ) => 
   matriz.map( ( arr ) => arr[ pos ] )
 
-const oneValue = multiplyMatriz(  getLinha( 0, matriz1 ), 
-                                  getColuna( 0, matriz2 ) 
-                                )
-console.log('oneValue', oneValue) //58
+
+const testOneValue = ( pos, [ m1, m2 ] = matrizes, matrizFinal ) => 
+  assert.deepEqual( matrizFinal[pos][pos],
+                    multiplyMatriz(  
+                                    getLinha( pos, m1 ), 
+                                    getColuna( pos, m2 ) 
+                                  ) 
+                  )
+
+
+
+const runTest = () => 
+  ( undefined === testOneValue( 0, [matriz1, matriz2], matrizResult ) )
+    ? console.log(`\n\t Primeiro valor - passou!`)
+    : console.log(`\n\t FUUUUUUU!`)
+
+
+runTest()
+
 ```
 
 ## Funcional Way
