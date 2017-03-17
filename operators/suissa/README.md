@@ -466,7 +466,7 @@ Sabendo disso iremos deixar nosso `module.exports` assim:
 
 module.exports = ( matrixBase, operators ) => {
 
-  const [ operatorsValues, ...matrix] = matrixBase
+  const [ operatorsValues, ...matrix ] = matrixBase
 
   return sumAll( operatorsValues, 
                   flatten( calculateMatrix( matrix, 
@@ -507,7 +507,7 @@ const sumAll = ( out, matrix ) =>
 
 module.exports = ( matrixBase, operators ) => {
 
-  const [ operatorsValues, ...matrix] = matrixBase
+  const [ operatorsValues, ...matrix ] = matrixBase
 
   return sumAll( operatorsValues, 
                   flatten( calculateMatrix( matrix, 
