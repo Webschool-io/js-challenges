@@ -1,21 +1,46 @@
-const matrix = [
-  [2,4,6,8],
-  [12,14,16,18],
-  [20,24,28,32],
-  [32,34,36,38],
-  [42,44,46,48]
-]
-const exp = matrix[0]
-const arrNumbers = matrix.slice(1)
-const props = [
-  (number, _i) => (number * exp[_i]),
-  (number, _i) => (number / exp[_i]),
-  (number, _i) => (number - exp[_i]),
-  (number, _i) => (number + exp[_i])
-]
-const op = (arr, _i) => arr.map(_a => props[_i](_a, _i))
-const prep = arrNumbers.map((_a, _b) => op(_a, _b))
-const concat = [].concat(exp, ...prep)
-const sum = concat.reduce((_a, _b) => _a + _b)
+const assert = require( 'assert' )
 
-console.log(concat, sum)
+const operators = [
+  x => y => y * x,
+  x => y => y / x,
+  x => y => y - x,
+  x => y => y + x
+]
+
+const matrixBase = [
+  [ 2, 4, 6, 8 ],
+  [12, 14, 16, 18],
+  [20, 24, 28, 32],
+  [32, 34, 36, 38],
+  [42, 44, 46, 48]
+]
+
+const specMultiply = {
+  _title: `Test multiply a list by 2`,
+  _fn: operators[0],
+  _in: 2,
+  _list: [12, 14, 16, 18],
+  _out: [24, 28, 32, 36],
+  calculated: []
+
+}
+
+const runOperation = ( spec ) => 
+  spec._list.map( spec._fn( spec._in ) )
+
+specMultiply.calculated = runOperation( specMultiply )
+
+
+const testSpec = ( spec ) => {
+  assert.deepEqual( spec._out, spec.calculated )
+
+}
+
+if ( testSpec( specMultiply ) === undefined ){
+  console.log(`\n\t ${specMultiply._title} passou!`)
+  console.log(`\n\t\t Esperado: ${specMultiply._out}`)
+  console.log(`\t\t Resultado: ${specMultiply.calculated}`)
+}
+
+
+// 
