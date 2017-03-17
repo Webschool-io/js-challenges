@@ -34,7 +34,7 @@ soma ([[2, 4, 6, 8], [24, 28, 32, 36], [5, 6, 7, 8], [26, 28, 30, 32], [50, 52, 
 O resultado final do cálculo é 494
 
 
-## Analizando
+## Analisando
 
 Temos a seguinte matriz, retirando a dos operadores:
 
@@ -416,7 +416,7 @@ module.exports = ( matrixBase, operators ) => {
 Sim fiz pequenas mudanças para que tudo acontecesse perfeitamente.
 
 <br>
-**Finalizando nosso módulo, por hora, dessa forma:**
+Finalizando nosso módulo, por hora, dessa forma:
 <br>
 
 
