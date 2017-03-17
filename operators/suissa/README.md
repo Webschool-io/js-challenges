@@ -145,6 +145,8 @@ const resultMultiplyBy2 = matrix[ opsFunctions.multiply ].map( multiplyBy2 )
 
 Percebeu que quando executamos `ops.multiply( opsValues[ opsFunctions.multiply ] )` ela automagicamente pegara' o valor correto para aquela operação, pois basicamente o valor `0` que tínhamos agora foi substituído por `opsFunctions.multiply`.
 
+Logo com isso acessamos o primeiro valor de `opsValues` para começar a multiplicar a lista.
+
 Agora vamos finalizar para as outras operações, porém deixando mais genérico, dessa forma:
 
 
