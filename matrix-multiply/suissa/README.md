@@ -71,7 +71,7 @@ Para isso criaremos 3 funções:
 
 Dessa forma:
 
-```js
+```
 
 const conteColunas = ( matriz ) => matriz[ 0 ].length
 
@@ -85,6 +85,7 @@ console.log(`possoMultiplicar: `, possoMultiplicar( matriz1, matriz2 )
 //true
 
 ```
+
 
 **A malandragem se encontra nessa parte: `const conteLinhas = ( matriz ) => 
   matriz.filter( linha => Array.isArray( linha ) ).length`.**
@@ -186,7 +187,7 @@ Pois queremos a lista dos valores da linha e coluna da posição `0`, então ela
 > **\- Como assim reduzir???**
 
 
-Assim: `linha.reduce( multipliquePela( coluna ), [] )`. Então estamos pegando cada valor da linha e executando a função `multipliquePela( coluna )` e nessa função injetamos a `coluna` que sera' usada dentro do primeiro `reduce`: `linha.reduce( multipliquePela( coluna ), [] )`.
+Assim: `linha.reduce( multipliquePela( coluna ), [] )`. Então estamos pegando cada valor da linha e executando a função `multipliquePela( coluna )` e nessa função injetamos a `coluna` que será usada dentro do primeiro `reduce`: `linha.reduce( multipliquePela( coluna ), [] )`.
 
 ```js
 
@@ -200,9 +201,9 @@ const multipliquePela = ( coluna ) => ( calculado, valorLinha, pos ) => {
 
 ```
 
-Precisamos injetar a `coluna` pois a nosso `reduce` utilizara' a função retornada por `multipliquePela = ( coluna ) =>` que possui a seguinte assinatura `( acc, cur, index )`, entretanto para deixar o código facilmente legível pelos alunos do Ensino Médio coloquei: `( calculado, valorLinha, pos )` onde o `calculado` é o acumulador, o `valorLinha` é o valor atual de cada iteração e `pos`(posição) é o índice da posição atual da iteração.
+Precisamos injetar a `coluna` pois a nosso `reduce` utilizará a função retornada por `multipliquePela = ( coluna ) =>` que possui a seguinte assinatura `( acc, cur, index )`, entretanto para deixar o código facilmente legível pelos alunos do Ensino Médio coloquei: `( calculado, valorLinha, pos )` onde o `calculado` é o acumulador, o `valorLinha` é o valor atual de cada iteração e `pos`(posição) é o índice da posição atual da iteração.
 
-Então calculamos com `valorLinha * coluna[ pos ]` pois para cada posição da linha você deve multiplicar com o valor da mesma posição da coluna e depois adicionamos esse resultado no *array* `calculado`, retornado esse *array* pois ele sempre entrara' na primeira posição como nosso acumulador `calculado`.
+Então calculamos com `valorLinha * coluna[ pos ]` pois para cada posição da linha você deve multiplicar com o valor da mesma posição da coluna e depois adicionamos esse resultado no *array* `calculado`, retornado esse *array* pois ele sempre entrará na primeira posição como nosso acumulador `calculado`.
 
 <br>
 
@@ -220,6 +221,34 @@ Agora fizemos boa parte do nosso trabalho falta **apenas fazer funcionar para to
 
 <br>
 
+
+```js
+
+const matrizCalculada = ( [ m1, m2 ] = matrizes ) => {
+
+  return m1.map( ( linha, pos ) => {
+    let contador = 0
+    let vezes = m1.length
+    const valores = []
+    while ( vezes ) {
+      valores.push( multipliqueLinhaColuna( pegueLinha( pos, m1 ), 
+                                            pegueColuna( contador, m2 ) ) )
+      --vezes
+      ++contador
+    }
+    if ( !vezes ) return valores
+  } )
+
+}
+
+console.log( matrizCalculada( [matriz1, matriz2 ]) ) 
+// [ [ 58, 64 ], [ 139, 154 ] ]
+
+```
+
+Logo temos na primeira linha os valores `58` e `63`; e na segunda os valores `139` e `154` como a imagem inicial demonstra.
+
+> **Muito fácil né?**
 
 ## Testando
 
