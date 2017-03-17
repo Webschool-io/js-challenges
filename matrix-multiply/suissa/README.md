@@ -212,6 +212,14 @@ Então calculamos com `valorLinha * coluna[ pos ]` pois para cada posição da l
 
 ### Colocar no seu lugar correto
 
+Agora fizemos boa parte do nosso trabalho falta **apenas fazer funcionar para toda a Matriz**!!
+
+<br>
+
+> **Apenas, disse ele e saiu correndo.**
+
+<br>
+
 
 ## Testando
 
