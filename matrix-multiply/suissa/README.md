@@ -89,7 +89,7 @@ console.log(`possoMultiplicar: `, possoMultiplicar( matriz1, matriz2 )
 **A malandragem se encontra nessa parte: `const conteLinhas = ( matriz ) => 
   matriz.filter( linha => Array.isArray( linha ) ).length`.**
 
-Pois como precisamos passar em todas suas linhas para conta-las utilizei o `filter` na `matriz` testando se cada `linha` é um Array, caso seja a linha é apenas retornada pelo `filter` e quando finaliza toda a iteraç˜ao eu apenas conto quantas linhas foram retornadas com o `length` e pronto!
+Pois como precisamos passar em todas suas linhas para conta-las utilizei o `filter` na `matriz` testando se cada `linha` é um Array, caso seja a linha é apenas retornada pelo `filter` e quando finaliza toda a iteração eu apenas conto quantas linhas foram retornadas com o `length` e pronto!
 
 <br>
 
@@ -110,8 +110,8 @@ const matriz2 = [
   [ 11, 12 ]
 ]
 
-const getLinha = ( pos, matriz ) => matriz[ pos ]
-const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
+const pegueLinha = ( pos, matriz ) => matriz[ pos ]
+const pegueColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
 
 const primeiraLinha = getLinha( 0, matriz1 )
 const primeiraColuna = getColuna( 0, matriz1 )
@@ -124,7 +124,7 @@ const primeiraColuna = getColuna( 0, matriz1 )
 
 <br>
 
-Porque iremos criar a funç˜ao que calcula o esquema:
+Porque iremos criar a função que calcula um valor:
 
 ```js
 
@@ -138,6 +138,77 @@ const multipliqueLinhaColuna = ( linha, coluna ) => {
 
 ```
 
+Melhorando ela deixaremos assim:
+
+```js
+
+const somandoTudo = ( a, b ) => a + b
+
+const multipliquePela = ( coluna ) => ( calculado, valorLinha, pos ) => {
+  calculado.push( valorLinha * coluna[ pos ] )
+  return calculado
+}
+
+const multipliqueLinhaColuna = ( linha, coluna ) => 
+  linha.reduce( multipliquePela( coluna ), [] ).reduce( somandoTudo )
+
+console.log(multipliqueLinhaColuna( pegueLinha( 0, matriz1 ), 
+                                    pegueColuna( 0, matriz2 ) ) ) 
+// 58
+
+```
+
+<br>
+
+Vou explicar como chegamos nesse resultado correto.
+
+<br>
+
+Inicialmente vamos analisar a função `multipliqueLinhaColuna`:
+
+```js
+
+const multipliqueLinhaColuna = ( linha, coluna ) => 
+  linha.reduce( multipliquePela( coluna ), [] ).reduce( somandoTudo )
+
+multipliqueLinhaColuna( pegueLinha( 0, matriz1 ), 
+                                    pegueColuna( 0, matriz2 ) )
+
+```
+
+Como seus argumentos estamos passando:
+
+- pegueLinha( 0, matriz1 ): linha
+- pegueColuna( 0, matriz2 ): coluna
+
+Pois queremos a lista dos valores da linha e coluna da posição `0`, então elas farão esse trabalho para que não precisemos passar manualmente e depois eu começo a reduzir pela linha.
+
+> **\- Como assim reduzir???**
+
+
+Assim: `linha.reduce( multipliquePela( coluna ), [] )`. Então estamos pegando cada valor da linha e executando a função `multipliquePela( coluna )` e nessa função injetamos a `coluna` que sera' usada dentro do primeiro `reduce`: `linha.reduce( multipliquePela( coluna ), [] )`.
+
+```js
+
+const somandoTudo = ( a, b ) => a + b
+
+const multipliquePela = ( coluna ) => ( calculado, valorLinha, pos ) => {
+  calculado.push( valorLinha * coluna[ pos ] )
+  return calculado
+}
+
+
+```
+
+Precisamos injetar a `coluna` pois a nosso `reduce` utilizara' a função retornada por `multipliquePela = ( coluna ) =>` que possui a seguinte assinatura `( acc, cur, index )`, entretanto para deixar o código facilmente legível pelos alunos do Ensino Médio coloquei: `( calculado, valorLinha, pos )` onde o `calculado` é o acumulador, o `valorLinha` é o valor atual de cada iteração e `pos`(posição) é o índice da posição atual da iteração.
+
+Então calculamos com `valorLinha * coluna[ pos ]` pois para cada posição da linha você deve multiplicar com o valor da mesma posição da coluna e depois adicionamos esse resultado no *array* `calculado`, retornado esse *array* pois ele sempre entrara' na primeira posição como nosso acumulador `calculado`.
+
+<br>
+
+**Sabendo disso podemos ir para o próximo problema!**
+
+<br>
 
 ### Colocar no seu lugar correto
 
