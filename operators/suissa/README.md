@@ -219,7 +219,7 @@ Você deve se perguntar:
 
 ```js
 
-onst multiply = x => y => y * x
+const multiply = x => y => y * x
 const divide = x => y => y / x
 const minus = x => y => y - x
 const sum = x => y => y + x
@@ -518,7 +518,6 @@ module.exports = ( matrixBase, operators ) => {
                           ) 
                 )
 }
-
 
 
 ```
