@@ -16,7 +16,6 @@ const matrixBase = [
   [42, 44, 46, 48]
 ]
 
-
 const sumAll = require('./operators') 
 
 const specSumAll = {
@@ -24,12 +23,11 @@ const specSumAll = {
   _fn: sumAll,
   _in: matrixBase,
   _out: 494,
-  calculated: 0
+  calculated: sumAll( matrixBase, operators )
 }
 
-specSumAll.calculated = sumAll( matrixBase, operators )
 // console.log(`\n\t sumAll: ${sumAll}!`)
-console.log(`\n\t specSumAll.calculated: ${specSumAll.calculated}!`)
+// console.log(`\n\t specSumAll.calculated: ${specSumAll.calculated}!`)
 
 // const specMultiply = {
 //   _title: `Test multiply a list by 2`,
@@ -49,24 +47,23 @@ console.log(`\n\t specSumAll.calculated: ${specSumAll.calculated}!`)
 
 
 
-// const testSpec = ( spec ) => {
-//   assert.deepEqual( spec._out, spec.calculated )
-// }
+const testSpec = ( spec ) => {
+  assert.deepEqual( spec._out, spec.calculated )
+}
 
-// const specs = [
-//   specMultiply,
-//   specSumAll
-// ]
+const specs = [
+  // specMultiply,
+  specSumAll
+]
 
-// specs.map( ( test ) => {
-//   console.log(`test`)
-//   if ( testSpec( test ) === undefined ){
-//     console.log(`\n\t ${specMultiply._title} passou!`)
-//     console.log(`\n\t\t Esperado: ${specMultiply._out}`)
-//     console.log(`\t\t Resultado: ${specMultiply.calculated}`)
-//   }
-// } )
+const runTest = ( test ) => {
+  if ( testSpec( test ) === undefined ){
+    console.log(`\n\t ${test._title} - passou!`)
+    console.log(`\n\t\t Esperado: ${test._out}`)
+    console.log(`\t\t Resultado: ${test.calculated}`)
+  }
+} 
 
+// Run this shit
 
-
-// 
+specs.map( runTest )

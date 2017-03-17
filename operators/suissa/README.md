@@ -366,11 +366,78 @@ console.log(`result: ${result}`)
 
 ```
 
+## Testando
+
+Vamos criar um teste simples para nos ajudar a validar nosso código:
+
+```js
+
+const assert = require( 'assert' )
+
+const operators = [
+  x => y => y * x,
+  x => y => y / x,
+  x => y => y - x,
+  x => y => y + x
+]
+
+
+const matrixBase = [
+  [ 2, 4, 6, 8 ],
+  [12, 14, 16, 18],
+  [20, 24, 28, 32],
+  [32, 34, 36, 38],
+  [42, 44, 46, 48]
+]
+
+const sumAll = require('./operators') 
+
+const specSumAll = {
+  _title: `Test sum all the values transformed`,
+  _fn: sumAll,
+  _in: matrixBase,
+  _out: 494,
+  calculated: sumAll( matrixBase, operators )
+}
+
+const testSpec = ( spec ) => {
+  assert.deepEqual( spec._out, spec.calculated )
+}
+
+const specs = [
+  specSumAll
+]
+
+const runTest = ( test ) => {
+  if ( testSpec( test ) === undefined ){
+    console.log(`\n\t ${test._title} - passou!`)
+    console.log(`\n\t\t Esperado: ${test._out}`)
+    console.log(`\t\t Resultado: ${test.calculated}`)
+  }
+} 
+
+
+// Run this shit
+
+specs.map( runTest )
+
+
+```
+
+<br>
+
+> Percebeu que precisamos importar a funçao `sumAll`?
+
+<br>
+
+Se temos a seguinte chamada `sumAll( matrixBase, operators )`, logo sabemos quais valores precisamos injetar nesse módulo e para isso **precisamos antes modulariza-lo!**
+
+
 ## Modularizando
 
 Nesse momento iremos entender o porquê criamos tantas funções puras e atômicas, primeiro passo é colocarmos nosso código como um módulo usando, ainda, o bom e velho `module.exports`.
 
-Vamos pensar que os únicos valores que precisamos passar é o *array* inteiro e quais operações queremos executar, logo podemos faremos assim:
+Vamos pensar que os únicos valores que precisamos passar é o *array* inteiro e quais operações queremos executar, logo podemos fazer assim:
 
 ```js
 
@@ -456,5 +523,3 @@ module.exports = ( matrixBase, operators ) => {
 
 ```
 
-
-## Testando
