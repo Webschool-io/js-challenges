@@ -32,12 +32,14 @@ const multiplyMatriz = ( linha, coluna ) => {
   return result
 }
 
-const getColuna = ( matriz ) => 
-  matriz.map( ( arr, pos ) => arr[0] )
+const getLinha = ( pos, matriz ) => matriz[ pos ]
+const getColuna = ( pos, matriz ) => 
+  matriz.map( ( arr ) => arr[ pos ] )
 
-// console.log('getColuna( matriz2 )', getColuna( matriz2 ))
-const r = multiplyMatriz( matriz1[0], getColuna( matriz2 ) )
-console.log('r', r)
+const oneValue = multiplyMatriz(  getLinha( 0, matriz1 ), 
+                                  getColuna( 0, matriz2 ) 
+                                )
+console.log('oneValue', oneValue) //58
 // const specLenghOfResult = {
 //   _title: `Teste se o Array resultante tem o tamanho correto`,
 //   _fn: multiplyMatriz,
