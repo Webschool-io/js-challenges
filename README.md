@@ -1,6 +1,6 @@
 # JavaScript - Desafios
 
-> Repositório para centralizar os desafios de JS dos grupos de [Node.js](https://t.me/NodejsBR) e [JavaScript](https://t.me/javascriptbrasil)
+> Repositório para centralizar os desafios de JS dos grupos de [Node.js](https://t.me/NodejsBR), [JavaScript](https://t.me/javascriptbrasil) e [JS4Girls](https://t.me/joinchat/AAAAAAv6M1fbEYWkmYFbSg)
 
 Dia ou outro alguém joga algum desafio la ou pede uma ajuda e isso gera algumas soluções que decedi guardar por 
 aqui para ajudar nossos alunos.
