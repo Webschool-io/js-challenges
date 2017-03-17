@@ -93,7 +93,7 @@ Vamos reler o que o desafio propõe:
 
 ```
 
-Entao podemos traduzir isso em JS assim:
+Então podemos traduzir isso em JS assim:
 
 ```js
 
@@ -143,7 +143,7 @@ const resultMultiplyBy2 = matrix[ 0 ].map( multiplyBy2 )
 
 ```
 
-Agora vamos finalizar para aso outras opções porém deixando mais genérico dessa forma:
+Agora vamos finalizar para as outras operações, porém deixando mais genérico, dessa forma:
 
 
 ```js
