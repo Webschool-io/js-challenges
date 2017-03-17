@@ -20,23 +20,23 @@ const conteColunas = ( matriz ) => matriz[ 0 ].length
 const conteLinhas = ( matriz ) => 
   matriz.filter( list => Array.isArray( list ) ).length
 
-const testeTamanhoMatrizes = ( m1, m2 ) => 
+const possoMultiplicar = ( m1, m2 ) => 
   conteColunas( m1 ) === conteLinhas( m2 )
 
 
-const multiplyMatriz = ( linha, coluna ) => {
+const multipliqueMatriz = ( linha, coluna ) => {
   const result = linha.reduce( ( acc, cur, pos ) => {
     acc.push( cur * coluna[pos] )
     return acc
   }, [] ).reduce( (a, b) => a+b)
   return result
 }
+
 const getLinha = ( pos, matriz ) => matriz[ pos ]
 const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
-
 const testOneValue = ( pos, [ m1, m2 ] = matrizes, matrizFinal ) => 
   assert.deepEqual( matrizFinal[pos][pos],
-                    multiplyMatriz( getLinha( pos, m1 ), 
+                    multipliqueMatriz( getLinha( pos, m1 ), 
                                     getColuna( pos, m2 ) ) 
                   )
 
@@ -47,8 +47,7 @@ const specOneValue = {
 }
 
 const showTitle = ( msg ) => { console.log(msg); return 1 }
-
-const runTest = ( spec ) => //console.log('spec', spec)
+const runTest = ( spec ) => 
   ( showTitle( spec.title ) && undefined === spec.result )
     ? console.log( spec.msgOK )
     : console.log( `\n\t FUUUUUUU!` )

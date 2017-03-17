@@ -65,9 +65,9 @@ Guarde bem, isso: **O resultado dessa multiplicação será uma matriz com o nú
 
 Para isso criaremos 3 funções:
 
-- conteColunas
-- conteLinhas
-- testeTamanhoMatrizes
+- conteColunas: Number
+- conteLinhas: Number
+- possoMultiplicar: Boolean
 
 Dessa forma:
 
@@ -78,8 +78,11 @@ const conteColunas = ( matriz ) => matriz[ 0 ].length
 const conteLinhas = ( matriz ) => 
   matriz.filter( linha => Array.isArray( linha ) ).length
 
-const testeTamanhoMatrizes = ( m1, m2 ) => 
+const possoMultiplicar = ( m1, m2 ) => 
   conteColunas( m1 ) === conteLinhas( m2 )
+
+console.log(`possoMultiplicar: `, possoMultiplicar( matriz1, matriz2 ) 
+//true
 
 ```
 
@@ -88,9 +91,11 @@ const testeTamanhoMatrizes = ( m1, m2 ) =>
 
 Pois como precisamos passar em todas suas linhas para conta-las utilizei o `filter` na `matriz` testando se cada `linha` é um Array, caso seja a linha é apenas retornada pelo `filter` e quando finaliza toda a iteraç˜ao eu apenas conto quantas linhas foram retornadas com o `length` e pronto!
 
+<br>
+
 ### Pegar os valores e calcular
 
-Primeiramente precisamos pegar os valores da linha da primeira e da coluna da segunda matriz.
+Primeiramente precisamos pegar os valores da primeira linha da primeira matriz e da primeira coluna da segunda matriz.
 
 ```js
 
@@ -109,12 +114,33 @@ const getLinha = ( pos, matriz ) => matriz[ pos ]
 const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
 
 const primeiraLinha = getLinha( 0, matriz1 )
+const primeiraColuna = getColuna( 0, matriz1 )
 
 ```
 
-Sabemos que para pegar a linha 
+<br>
+
+> **Agora que a cobra vai fumar!**
+
+<br>
+
+Porque iremos criar a funç˜ao que calcula o esquema:
+
+```js
+
+const multipliqueMatriz = ( linha, coluna ) => {
+  const result = linha.reduce( ( acc, cur, pos ) => {
+    acc.push( cur * coluna[pos] )
+    return acc
+  }, [] ).reduce( (a, b) => a+b)
+  return result
+}
+
+```
+
 
 ### Colocar no seu lugar correto
+
 
 ## Testando
 
