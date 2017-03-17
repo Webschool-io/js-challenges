@@ -45,29 +45,30 @@ const multiplyMatriz = ( linha, coluna ) => {
   }, [] ).reduce( (a, b) => a+b)
   return result
 }
-
 const getLinha = ( pos, matriz ) => matriz[ pos ]
-const getColuna = ( pos, matriz ) => 
-  matriz.map( ( arr ) => arr[ pos ] )
-
+const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
 
 const testOneValue = ( pos, [ m1, m2 ] = matrizes, matrizFinal ) => 
   assert.deepEqual( matrizFinal[pos][pos],
-                    multiplyMatriz(  
-                                    getLinha( pos, m1 ), 
-                                    getColuna( pos, m2 ) 
-                                  ) 
+                    multiplyMatriz( getLinha( pos, m1 ), 
+                                    getColuna( pos, m2 ) ) 
                   )
 
+const specOneValue = {
+  title: `Testar se o primeiro valor esta correto`,
+  msgOK: `\n\t Primeiro valor - passou!`,
+  result: testOneValue( 0, [matriz1, matriz2], matrizResult )
+}
+
+const showTitle = ( msg ) => { console.log(msg); return 1 }
+
+const runTest = ( spec ) => //console.log('spec', spec)
+  ( showTitle( spec.title ) && undefined === spec.result )
+    ? console.log( spec.msgOK )
+    : console.log( `\n\t FUUUUUUU!` )
 
 
-const runTest = () => 
-  ( undefined === testOneValue( 0, [matriz1, matriz2], matrizResult ) )
-    ? console.log(`\n\t Primeiro valor - passou!`)
-    : console.log(`\n\t FUUUUUUU!`)
-
-
-runTest()
+runTest( specOneValue )
 
 ```
 
