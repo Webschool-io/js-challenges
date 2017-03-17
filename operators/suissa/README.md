@@ -311,7 +311,7 @@ const calculateMatrix = ( matrix, calculator, operators ) =>
 
 const result = flatten(calculateMatrix( matrix, calculate, operators ))
                 .concat( operatorsValues )
-                .reduce( ( a, b ) => parseInt(a) + b, 0 )
+                .reduce( ( a, b ) => a + b, 0 )
 
 console.log(`result: ${result}`)
 // result: 494
@@ -355,7 +355,7 @@ const calculateMatrix = ( matrix, calculator, operators ) =>
 
 const sumAll = ( out, matrix ) => 
   matrix.concat( out )
-        .reduce( ( a, b ) => parseInt(a) + b, 0 )
+        .reduce( ( a, b ) => a + b, 0 )
 
 const result = sumAll(  operatorsValues, 
                         flatten( calculateMatrix( matrix, calculate, operators ) ) )
