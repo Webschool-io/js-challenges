@@ -24,7 +24,7 @@ const possoMultiplicar = ( m1, m2 ) =>
   conteColunas( m1 ) === conteLinhas( m2 )
 
 
-const multipliqueMatriz = ( linha, coluna ) => {
+const multipliqueLinhaColuna = ( linha, coluna ) => {
   const result = linha.reduce( ( acc, cur, pos ) => {
     acc.push( cur * coluna[pos] )
     return acc
@@ -36,7 +36,7 @@ const getLinha = ( pos, matriz ) => matriz[ pos ]
 const getColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
 const testOneValue = ( pos, [ m1, m2 ] = matrizes, matrizFinal ) => 
   assert.deepEqual( matrizFinal[pos][pos],
-                    multipliqueMatriz( getLinha( pos, m1 ), 
+                    multipliqueLinhaColuna( getLinha( pos, m1 ), 
                                     getColuna( pos, m2 ) ) 
                   )
 

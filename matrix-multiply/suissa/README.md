@@ -128,7 +128,7 @@ Porque iremos criar a funç˜ao que calcula o esquema:
 
 ```js
 
-const multipliqueMatriz = ( linha, coluna ) => {
+const multipliqueLinhaColuna = ( linha, coluna ) => {
   const result = linha.reduce( ( acc, cur, pos ) => {
     acc.push( cur * coluna[pos] )
     return acc
