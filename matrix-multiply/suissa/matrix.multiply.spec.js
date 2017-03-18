@@ -31,15 +31,15 @@ const multipliquePela = ( coluna ) => ( calculado, valorLinha, pos ) => {
 }
 
 const multipliqueLinhaColuna = ( linha, coluna ) => 
-  linha.reduce( multipliquePela( coluna ), [] ).reduce( somandoTudo )
+  linha.reduce( multipliquePela( coluna ), [] )
+        .reduce( somandoTudo )
 
 const pegueLinha = ( pos, matriz ) => matriz[ pos ]
 const pegueColuna = ( pos, matriz ) => matriz.map( ( arr ) => arr[ pos ] )
 
 
-const matrizCalculada = ( [ m1, m2 ] = matrizes ) => {
-
-  return m1.map( ( linha, pos ) => {
+const matrizCalculada = ( [ m1, m2 ] = matrizes ) => 
+  m1.map( ( linha, pos ) => {
     let contador = 0
     let vezes = m1.length
     const valores = []
@@ -52,7 +52,6 @@ const matrizCalculada = ( [ m1, m2 ] = matrizes ) => {
     if ( !vezes ) return valores
   } )
 
-}
 
 const resultadoFinal = matrizCalculada( [ matriz1, matriz2 ] )
 
@@ -65,7 +64,7 @@ const testeUmValor = ( pos, [ m1, m2 ] = matrizes, matrizFinal ) =>
 const showError = ( expected, received ) => 
   assert.deepEqual( expected, received )
 
-const testeTodosValores = ([ m1, m2 ] = matrizes, matrizFinal ) => {
+const testeTodosValores = ([ m1, m2 ] = matrizes, matrizFinal ) => 
   matrizFinal.map( (linha, posLinha) => 
     linha.map( (valor, posValor) => 
       ( matrizFinal[posLinha][posValor] === 
@@ -75,7 +74,7 @@ const testeTodosValores = ([ m1, m2 ] = matrizes, matrizFinal ) => {
                       resultadoFinal[posLinha][posValor] )
     )
   )
-}
+
 const specUmValor = {
   title: `\n Testar se o primeiro valor esta correto`,
   msgOK: `\t Primeiro valor - passou!`,
@@ -84,7 +83,10 @@ const specUmValor = {
 
 const specTodosValores = {
   title: `\n Testar se todos os valores estão corretos`,
-  msgOK: `\t Estão todos corretos - parabéns!`,
+  msgOK: `\t Estão todos corretos - parabéns!
+  \t Esperado: ${matrizResult}
+  \t Recebido: ${resultadoFinal}
+  `,
   result: testeTodosValores( [matriz1, matriz2], matrizResult )
 }
 
@@ -106,4 +108,7 @@ const specs = [
   specTodosValores
 ]
 
+console.log('\n Matriz 1: ', matriz1)
+console.log(' Matriz 2: ', matriz2)
+console.log(' Matriz Final: ', matrizResult)
 runTests( specs )
