@@ -19,5 +19,6 @@ aqui para ajudar nossos alunos.
 - [Mostre-me os pares - Mostre-me os ímpares](https://gist.github.com/yesroh/720cda408bbc899fc6c69bfddfbe6505).
 - [Números Primos](https://gist.github.com/Woodsphreaker/e81e068caee110e821c4c9b375a76ddd).
 - [Conte os Números Negativos em uma Matriz](https://gist.github.com/yesroh/560fe5e74638292199c7c3cd05716be8).
-
+- [Desafio dos operadores básicos](https://github.com/Webschool-io/js-desafios/tree/master/operators/suissa)
+- [Desafio - Multiplicar Matrizes](https://github.com/Webschool-io/js-desafios/tree/master/matrix-multiply/suissa)
 
