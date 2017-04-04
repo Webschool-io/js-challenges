@@ -1,0 +1,19 @@
+{
+  "name": "webschool-js-challenges",
+  "version": "1.0.0",
+  "description": "> Repositório para centralizar os desafios de JS dos grupos de [Node.js](https://t.me/NodejsBR), [JavaScript](https://t.me/javascriptbrasil) e [JS4Girls](https://t.me/joinchat/AAAAAAv6M1fbEYWkmYFbSg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webschool-io/js-desafios.git"
+  },
+  "author": "Suissa",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/Webschool-io/js-desafios/issues"
+  },
+  "homepage": "https://github.com/Webschool-io/js-desafios#readme"
+}
