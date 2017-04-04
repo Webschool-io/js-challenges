@@ -4,7 +4,7 @@ Desafio proposto pelo meu aluno [Samuel Verneck](https://github.com/samverneck/)
 
 > Como posso fazer o 99 virar 100 usando somente o número 9?
 > 
-> Obs: Você pode usar multiplicação, subtração, adição, soma e etc...
+> Obs: Você pode usar multiplicação, subtração, adição, divisão e etc...
 > 
 > **SÓ PODE USAR O NÚMERO NOVE**
 
