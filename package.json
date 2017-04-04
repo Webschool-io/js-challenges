@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Webschool-io/js-desafios/issues"
   },
-  "homepage": "https://github.com/Webschool-io/js-desafios#readme"
+  "homepage": "https://github.com/Webschool-io/js-desafios#readme",
+  "dependencies": {
+    "chai": "^3.5.0"
+  }
 }

@@ -12,7 +12,7 @@ const resolvePeculiarity = ( num ) => {
 
 const resolveChallenge = resolvePeculiarity
 
-describe('Teste essa peculiaridade',  () => {
+describe('Teste se consegue transformar 99 virar 100 usando somente o número 9',  () => {
 
   it('Se 9 ^ 2 = 81 entao 8 + 1 deve ser 9', () => {
     const num = 9
@@ -51,7 +51,7 @@ describe('Teste essa peculiaridade',  () => {
     expect( result ).to.equal( num )
   })
 
-  it('Se 999 ^ 2 = 998001 entao 494 + 209 deve ser 999', () => {
+  it('Se 999 ^ 2 = 998001 entao 998 + 001 deve ser 999', () => {
     const num = 999
     const result = resolveChallenge( num )
     expect( result ).to.equal( num )
